@@ -1,6 +1,5 @@
 from dateutil import tz
 from dateutil.parser import parse
-from time import time
 
 out = 0
 lines = open('input.txt').readlines()

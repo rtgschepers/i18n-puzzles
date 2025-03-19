@@ -2,7 +2,7 @@ import re
 from unidecode import unidecode
 
 out = 0
-with open('./input.txt', 'r') as file:
+with open('./input.txt', 'r', encoding='utf-8') as file:
     for line in file:
         line = line.strip()
         valid = True

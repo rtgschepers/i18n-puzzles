@@ -1,0 +1,6 @@
+.idea/
+.venv
+*.txt
+!template.txt
+!requirements.txt
+config.py

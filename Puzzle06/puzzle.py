@@ -3,7 +3,7 @@ import re
 words = []
 patterns = []
 switch = False
-for line in open('input.txt'):
+for line in open('input.txt', encoding='utf-8'):
     line = line.strip()
     if line == '':
         switch = True
