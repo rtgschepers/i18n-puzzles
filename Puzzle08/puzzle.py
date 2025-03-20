@@ -1,20 +1,28 @@
 import re
 from unidecode import unidecode
 
+
+def contains_recurring(string):
+    for c in set(string):
+        if string.count(c) > 1:
+            return True
+    return False
+
+
 out = 0
-with open('./input.txt', 'r') as file:
+with open('./input.txt', encoding='utf-8') as file:
     for line in file:
-        line = line.strip()
+        line = unidecode(line.strip()).lower()
         valid = True
         if not (4 <= len(line) <= 12):
             valid = False
         if not re.search(r'[0-9]', line):
             valid = False
-        if not re.search(r'[A-Z]', unidecode(line)):
+        if not re.search(r'[aeiou]', line):
             valid = False
-        if not re.search(r'[a-z]', unidecode(line)):
+        if not re.search(r'[bcdfghjklmnpqrstvwxyz]', line):
             valid = False
-        if not any([c for c in line if ord(c) > 127]):
+        if contains_recurring(unidecode(line)):
             valid = False
 
         if valid:
