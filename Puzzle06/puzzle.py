@@ -1,14 +1,13 @@
 import re
 
 words = []
-patterns = []
-switch = False
+patterns = None
 for line in open('input.txt', encoding='utf-8'):
     line = line.strip()
     if line == '':
-        switch = True
+        patterns = []
         continue
-    if not switch:
+    if patterns is None:
         if (len(words) + 1) % 3 == 0:
             line = line.encode('iso-8859-1').decode('utf-8')
         if (len(words) + 1) % 5 == 0:
